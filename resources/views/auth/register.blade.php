@@ -1,7 +1,8 @@
-<!-- resources/views/auth/register.blade.php -->
+{{-- resources/views/auth/register.blade.php --}}
 @extends('layouts.app')
 
 @section('content')
+<link href="{{ asset('css/register.css') }}" rel="stylesheet">
 <div class="container">
     <h2>Register</h2>
     <form method="POST" action="{{ route('user.register') }}">

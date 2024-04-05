@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController; // Remember to use your actual controller namespace
+use App\Http\Controllers\MessageController;
 
 
 /*
@@ -50,3 +51,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/profile/edit', [UserController::class, 'edit'])->name('profile.edit');
+Route::put('/profile/update', [UserController::class, 'update'])->name('profile.update');
+Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users')->middleware('auth');
+Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('auth');
+
+Route::get('/messages', [MessageController::class, 'index'])->name('messages.index')->middleware('auth');
+// Example of correct route definition
+Route::get('/messages/create/{seller_id}/{product_id}', [MessageController::class, 'showCreateForm'])->name('messages.createform');
+Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+Route::get('/messages/reply/{message}', [MessageController::class, 'reply'])->name('messages.reply')->middleware('auth');

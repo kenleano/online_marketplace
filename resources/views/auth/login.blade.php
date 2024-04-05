@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="{{ asset('css/register.css') }}" rel="stylesheet">
 <div class="container">
     <h2>Login</h2>
     <form method="POST" action="{{ route('login.submit') }}">

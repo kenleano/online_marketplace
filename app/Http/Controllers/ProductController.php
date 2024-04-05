@@ -37,19 +37,19 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'image_url' => 'nullable|string', // Validate the image URL
         ]);
-    
+
         // Add the user_id to the validated data array
         $validatedData['user_id'] = Auth::id();
         $validatedData['image'] = $validatedData['image_url']; // Use the image URL from Cloudinary
         unset($validatedData['image_url']); // Remove the extra 'image_url' field
-    
+
         // Create the product record in the database
         $product = Product::create($validatedData);
-    
+
         // Redirect back to the dashboard with a success message
         return redirect()->route('dashboard')->with('success', 'Product posted successfully!');
     }
-    
+
     public function myProducts()
     {
         // Fetch products posted by the authenticated user
@@ -85,5 +85,29 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->route('products.my')->with('success', 'Product deleted successfully.');
+    }
+
+    public function update(Request $request, $productId)
+    {
+        $product = Product::findOrFail($productId);
+
+        // Ensure the user is authorized to update the product
+        if (Auth::id() !== $product->user_id) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:1000',
+            'price' => 'required|numeric',
+            'status' => 'required|in:for_sale,sold',
+            // Add validation for the image if you're handling image uploads
+        ]);
+
+        // Update the product with validated data
+        $product->update($validatedData);
+
+        // Redirect back with a success message
+        return redirect()->route('products.my')->with('success', 'Product updated successfully!');
     }
 }

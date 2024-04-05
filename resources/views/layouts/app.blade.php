@@ -7,7 +7,6 @@
     <title>@yield('title', 'Welcome')</title>
     <!-- Link to Custom CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
 </head>
 
 <body>
@@ -21,16 +20,28 @@
             <!-- Right-aligned items -->
             <div class="nav-right">
                 @if(Auth::check())
-                <a href="{{ route('products.index') }}">Listings</a> <!-- Add this line -->
-                <a href="{{ route('products.my') }}">My Products</a> <!-- Add this line -->
-                <a href="{{ url('/dashboard') }}">Dashboard</a>
-                <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-                    @csrf
-                    <button type="submit">Logout</button>
-                </form>
+                    @if(Auth::user()->role === 'admin')
+                        <!-- Admin-specific navigation -->
+                        <a href="{{ route('admin.users') }}">Manage Users</a>
+                        <!-- You can add more admin-specific links here -->
+                    @else
+                        <!-- Regular user navigation -->
+                        <a href="{{ route('products.index') }}">Listings</a>
+                        <a href="{{ route('products.my') }}">My Products</a>
+                        <a href="{{ url('/messages') }}">Messages</a>
+                        <a href="{{ url('/dashboard') }}">Dashboard</a>
+                    @endif
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 @else
-                <a href="{{ route('register') }}">Register</a>
-                <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('login') }}">Login</a>
                 @endif
             </div>
         </div>

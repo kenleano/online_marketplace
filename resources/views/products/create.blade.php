@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="{{ asset('css/create.css') }}" rel="stylesheet">
 <div class="container">
     <h2>Post a New Product</h2>
     <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
@@ -21,7 +22,6 @@
         <div>
             <label for="image">Product Image:</label>
             <div>
-                <label for="image_url">Product Image:</label>
                 <button type="button" id="upload_widget" class="btn btn-success">Upload Image</button>
                 <input type="hidden" name="image_url" id="image_url">
                 <div class="thumbnail"></div> <!-- Optional: For displaying the uploaded image thumbnail -->

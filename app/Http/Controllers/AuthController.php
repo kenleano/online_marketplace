@@ -22,20 +22,17 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials, $request->filled('remember'))) {
-            $request->session()->regenerate();
-
-            return redirect()->intended('dashboard'); // Redirect to the intended page or a default dashboard page
+            // Check if the logged-in user is an admin
+            if (Auth::user()->role === 'admin') {
+                return redirect()->route('admin.users'); // Redirect admin to admin.users
+            } else {
+                return redirect()->intended('dashboard'); // Redirect regular users to the dashboard
+            }
         }
 
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
-        // In your AuthController's login method
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            return redirect()->intended('dashboard'); // Ensure this directs users to the dashboard route
-        }
     }
 
     public function logout(Request $request)

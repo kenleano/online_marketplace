@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="{{ asset('css/edit.css') }}" rel="stylesheet">
 <div class="container">
     <h2>Edit Product</h2>
     <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
@@ -19,6 +20,14 @@
             <label for="description">Description:</label>
             <textarea name="description" required>{{ old('description', $product->description) }}</textarea>
         </div>
+        {{-- Product Status --}}
+        <div>
+            <label for="status">Status:</label>
+            <select name="status" id="status" required>
+                <option value="for_sale" {{ old('status', $product->status) == 'for_sale' ? 'selected' : '' }}>For Sale</option>
+                <option value="sold" {{ old('status', $product->status) == 'sold' ? 'selected' : '' }}>Sold</option>
+            </select>
+        </div>
 
         {{-- Product Price --}}
         <div>
@@ -31,8 +40,8 @@
             <label for="image">Product Image:</label>
             <input type="file" name="image">
             @if($product->image)
-                <p>Current Image:</p>
-                <img src="{{ $product->image }}" alt="Product Image" style="max-width: 200px;">
+            <p>Current Image:</p>
+            <img src="{{ $product->image }}" alt="Product Image">
             @endif
         </div>
 

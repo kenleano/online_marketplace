@@ -1,0 +1,91 @@
+/* Custom CSS for Dashboard */
+
+/* Container Styles */
+.container {
+    margin-top: 2rem;
+    
+}
+
+/* Form Wrapper Styles */
+.form-wrapper {
+    max-width: 600px;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+/* Dashboard Item Styles */
+.dashboard-item {
+
+}
+
+.dashboard-content {
+    padding: 5px;
+
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Dashboard Title Styles */
+.dashboard-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Dashboard Text Styles */
+.dashboard-text {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+/* Button Styles */
+.btn {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 767.98px) {
+    .form-wrapper {
+        padding: 0 15px;
+    }
+}

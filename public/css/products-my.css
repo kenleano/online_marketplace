@@ -1,49 +1,111 @@
-/* public/css/products-my.css */
-
+/* resources/css/products-my.css */
 .product-list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.card {
-    margin: 10px 0;
-    border: 1px solid #ccc; /* Add border */
+.product-card {
+    width: calc(33.33% - 20px);
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.card-body {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.product-card-body {
+    padding: 20px;
+}
+
+.product-img {
     width: 100%;
-}
-
-.card-title {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.card-img-top {
-    max-width: 100%;
     height: auto;
-    margin-bottom: 10px; /* Add some space below image */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
-.card-text {
-    font-size: 16px;
-    color: #666;
+.product-title {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.product-description {
+    margin-top: 10px;
+    font-size: 14px;
 }
 
 .button-group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    margin-top: 15px;
 }
 
-img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
+.button-group .btn {
+    margin-right: 10px;
+}
+
+
+.btn-danger {
+    border: none; 
+    padding: 5px 15px;
+    transition: all 0.3s ease-in;
+    background:  #ff2200;
+    color: #fff;
     border-radius: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    border: none; 
+    padding: 5px 15px;
+    transition: all 0.3s ease-in;
+    background:  #007bff;
+    color: #fff;
+    border-radius: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-post {
+    border: none; 
+    padding: 5px 15px;
+    transition: all 0.3s ease-in;
+    background:  #28a745;
+    color: #fff;
+    border-radius: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    display: inline-block;
+
+
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+
+    text-align: center;
+
+}
+/* resources/css/products-my.css */
+.button-container {
+    text-align: center;
+    margin-bottom: 20px; /* Adjust margin as needed */
 }
