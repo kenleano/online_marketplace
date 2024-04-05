@@ -1,0 +1,49 @@
+/* public/css/products-my.css */
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    margin: 10px 0;
+    border: 1px solid #ccc; /* Add border */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* Add some space below image */
+}
+
+.card-text {
+    font-size: 16px;
+    color: #666;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+}

@@ -2,19 +2,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card">
-                <img src="{{ $product->image }}"  class="card-img-top product-detail-img" alt="{{ $product->name }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $product->name }}</h5>
-                    <p class="card-text">{{ $product->description }}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="text-muted">${{ $product->price }}</span>
-                    </div>
-                </div>
-            </div>
+
+<link href="{{ asset('css/products-show.css') }}" rel="stylesheet">
+<div class="product-container">
+    <div class="product-image">
+        <img src="{{ $product->image }}" alt="{{ $product->name }}">
+    </div>
+    <div class="product-details">
+        <h2>{{ $product->name }}</h2>
+        <p>{{ $product->description }}</p>
+        <div class="product-price">
+            <span>${{ $product->price }}</span>
         </div>
     </div>
 </div>

@@ -1,40 +1,73 @@
-.container {
+body{
+    font-family: arial;
+}
+.container{
     display: flex;
     flex-wrap: wrap;
+    align-items: stretch;
     justify-content: center;
-    align-items: flex-start; /* Align items at the start of the cross axis */
 }
 
-.card {
-    width: 300px; /* Adjust as needed */
-    margin: 10px;
-    border: 1px solid #ccc; /* Add border */
-    border-radius: 8px; /* Add border radius */
-    overflow: hidden; /* Hide overflow */
+h1 {
+    text-align: center;
+
+    color: #566270;
+
+}
+.card{
+    flex: 0 0 200px; margin: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+    border-radius: 16px;
+}
+.card-img{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+.texts{
+    padding: 5px; margin-bottom:10px;
+
+}
+.texts button{
+    border: none; padding: 5px 15px;
+    background: #566270; color: #fff;
+    font-weight: 600;
+    transition: all 0.3s ease-in;
+}
+.texts button:hover{
+    background: #E0E3DA; color: #566270; cursor: pointer;
 }
 
-.card-body {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.text-price {
+    color: #008000;
+    font-weight: 600;
+    font-size: 20px;
+    
 }
 
-.card-img-top {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Ensures the image fills the container */
-    border-bottom: 1px solid #ccc; /* Add border to the bottom of the image */
+button {
+    border: none; 
+    padding: 5px 15px;
+    transition: all 0.3s ease-in;
+    background:  #007bff;
+    color: #fff;
+    border-radius: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
-.card-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+button:hover {
+    background: #0a4579; color: #566270; cursor: pointer;
+    
 }
 
-.card-text {
-    flex-grow: 1; /* Allows the description to grow if needed */
-}
-
-.btn {
-    align-self: flex-end; /* Align the button to the end of the card */
+a {
+    text-decoration: none;
+    color: #fff;
 }

@@ -8,7 +8,7 @@
     <h1>Dashboard</h1>
     <p>Welcome, {{ Auth::user()->name }}!</p>
     {{-- Add Post Product button --}}
-    <a href="{{ route('products.create') }}" class="btn btn-primary">Post Product</a>
+
 
     {{-- Logout button --}}
     <form method="POST" action="{{ route('logout') }}" style="margin-top: 20px;">
